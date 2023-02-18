@@ -1,4 +1,4 @@
-package com.attornatus.peoplemanagement;
+package br.com.attornatus.peoplemanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

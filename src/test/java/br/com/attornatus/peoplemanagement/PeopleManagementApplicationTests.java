@@ -1,4 +1,4 @@
-package com.attornatus.peoplemanagement;
+package br.com.attornatus.peoplemanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
