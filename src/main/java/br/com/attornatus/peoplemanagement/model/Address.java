@@ -12,7 +12,7 @@ public class Address {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id")
+    @JoinColumn(foreignKey = @ForeignKey(name = "person_id"))
     private Person person;
 
     private String street;
