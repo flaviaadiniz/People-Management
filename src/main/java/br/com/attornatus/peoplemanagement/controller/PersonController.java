@@ -1,6 +1,7 @@
 package br.com.attornatus.peoplemanagement.controller;
 
 import br.com.attornatus.peoplemanagement.dto.PersonRequestDTO;
+import br.com.attornatus.peoplemanagement.dto.PersonResponseDTO;
 import br.com.attornatus.peoplemanagement.model.Person;
 import br.com.attornatus.peoplemanagement.service.PersonService;
 import lombok.RequiredArgsConstructor;
@@ -16,16 +17,15 @@ public class PersonController {
     private final PersonService personService;
 
     @PostMapping()
-    public Person save(@RequestBody PersonRequestDTO person) {
-        Person savedPerson = null;
+    public PersonResponseDTO save(@RequestBody PersonRequestDTO person) {
+        Person savedPerson = personService.save(person);
 
-        try {
-            savedPerson = personService.save(person);
-        } catch (IllegalArgumentException exception) {
-            System.out.println("Pessoa Já existe!");
-        }
+        PersonResponseDTO personResponseDTO = new PersonResponseDTO();
+        personResponseDTO.setId(savedPerson.getId());
+        personResponseDTO.setName(savedPerson.getName());
+        personResponseDTO.setBirthDate(savedPerson.getBirthDate());
 
-        return savedPerson;
+        return personResponseDTO;
     }
 
 

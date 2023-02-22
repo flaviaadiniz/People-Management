@@ -14,10 +14,10 @@ public class PersonService {
 
     private final PersonRepository personRepository;
 
-    public Person save(PersonRequestDTO personDTO) {
+    public Person save(PersonRequestDTO personRequestDTO) {
         Person newPerson = new Person();
-        newPerson.setName(personDTO.getName());
-        newPerson.setBirthDate(personDTO.getBirthDate());
+        newPerson.setName(personRequestDTO.getName());
+        newPerson.setBirthDate(personRequestDTO.getBirthDate());
         return personRepository.save(newPerson);
     }
 
@@ -30,10 +30,10 @@ public class PersonService {
         return personRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
-    public Person editById(Long id, PersonRequestDTO personDTO) {
+    public Person editById(Long id, PersonRequestDTO personRequestDTO) {
         Person targetPerson = personRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-        targetPerson.setName(personDTO.getName());
-        targetPerson.setBirthDate(personDTO.getBirthDate());
+        targetPerson.setName(personRequestDTO.getName());
+        targetPerson.setBirthDate(personRequestDTO.getBirthDate());
         return personRepository.save(targetPerson);
     }
 }
