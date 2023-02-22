@@ -1,14 +1,10 @@
 package br.com.attornatus.peoplemanagement.controller;
 
-import br.com.attornatus.peoplemanagement.dto.AddressRequestDTO;
+import br.com.attornatus.peoplemanagement.dto.AddressDTO;
 import br.com.attornatus.peoplemanagement.model.Address;
-import br.com.attornatus.peoplemanagement.model.Person;
-import br.com.attornatus.peoplemanagement.repository.PersonRepository;
 import br.com.attornatus.peoplemanagement.service.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,24 +12,18 @@ import java.util.List;
 public class AddressController {
 
     private final AddressService addressService;
-    private final PersonRepository personRepository;
 
     @PostMapping()
-    public Address save(@RequestBody AddressRequestDTO addressDTO) {
+    public AddressDTO save(@RequestBody AddressDTO addressDTO) {
+        AddressDTO savedAddress = null;
 
-        Person targetPerson = personRepository
-                .findById(addressDTO.getPersonId()).orElseThrow(IllegalArgumentException::new);
-        Address address = new Address();
+        try {
+            savedAddress = addressService.save(addressDTO);
+        } catch (IllegalArgumentException exception) {
+            System.out.println("Pessoa Já existe!");
+        }
 
-        address.setPerson(targetPerson);
-        address.setStreet(addressDTO.getStreet());
-        address.setNumber(addressDTO.getNumber());
-        address.setPostalCode(addressDTO.getPostalCode());
-        address.setCity(addressDTO.getCity());
-        address.setMain(addressDTO.isMain());
-
-        return addressService.save(address);
-
+        return savedAddress;
     }
 
     @GetMapping("{id}")
@@ -47,6 +37,5 @@ public class AddressController {
     Criar método para verificar se o endereço é o principal
     @GetMapping()
     */
-
 
 }
