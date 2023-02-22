@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/persons")
+@RequestMapping("/api/person")
 public class PersonController {
 
     private final PersonService personService;
@@ -31,12 +31,14 @@ public class PersonController {
 
     @PutMapping("/{id}")
     public Person editById(@PathVariable Long id, @RequestBody PersonRequestDTO personRequestDTO) {
+        //o metodo esta alterando dados do usuario mas adicionando um endereço
         return personService.editById(id, personRequestDTO);
     }
 
 
     @GetMapping()
     public List<Person> list() {
+        //criar validações para usuarios inexistentes
         return personService.list();
     }
 

@@ -1,14 +1,9 @@
 package br.com.attornatus.peoplemanagement.service;
 
 import br.com.attornatus.peoplemanagement.model.Address;
-import br.com.attornatus.peoplemanagement.model.Person;
 import br.com.attornatus.peoplemanagement.repository.AddressRepository;
-import br.com.attornatus.peoplemanagement.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,8 +15,8 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
-    public List<Address> list() {
-        return (List<Address>) addressRepository.findAll();
+    public Address findById(Long id) {
+        return addressRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
     /*public void editByPersonId(Long id) {

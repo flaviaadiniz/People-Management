@@ -1,6 +1,10 @@
 package br.com.attornatus.peoplemanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,6 +12,8 @@ import java.util.List;
 
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "people")
 public class Person {
 
@@ -19,21 +25,14 @@ public class Person {
     private String name;
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthDate;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "person_id")
+    @JsonManagedReference
     private List<Address> addresses = new ArrayList<>();
 
-    public Person() {
-
-    }
-
-    public Person(Long id, String name, LocalDate birthDate, List<Address> address) {
-        this.id = id;
-        this.name = name;
-        this.birthDate = birthDate;
-        this.addresses = address;
-    }
 
     public Long getId() {
         return id;

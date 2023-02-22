@@ -1,45 +1,13 @@
-package br.com.attornatus.peoplemanagement.model;
+package br.com.attornatus.peoplemanagement.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "addresses")
-public class Address {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
-    private Person person;
+public class AddressRequestDTO {
 
     private String street;
     private String postalCode;
     private Integer number;
     private String city;
     private boolean main;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
+    private Long personId;
 
     public String getStreet() {
         return street;
@@ -81,4 +49,11 @@ public class Address {
         this.main = main;
     }
 
+    public Long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Long personId) {
+        this.personId = personId;
+    }
 }

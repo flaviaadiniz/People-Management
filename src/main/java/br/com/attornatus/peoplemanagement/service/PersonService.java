@@ -13,13 +13,11 @@ import java.util.List;
 public class PersonService {
 
     private final PersonRepository personRepository;
-    private final AddressService addressService;
 
     public Person save(PersonRequestDTO personDTO) {
         Person newPerson = new Person();
         newPerson.setName(personDTO.getName());
         newPerson.setBirthDate(personDTO.getBirthDate());
-        newPerson.setAddress(personDTO.getAddress());
         return personRepository.save(newPerson);
     }
 
@@ -36,7 +34,6 @@ public class PersonService {
         Person targetPerson = personRepository.findById(id).orElseThrow(IllegalArgumentException::new);
         targetPerson.setName(personDTO.getName());
         targetPerson.setBirthDate(personDTO.getBirthDate());
-        targetPerson.setAddress(personDTO.getAddress());
         return personRepository.save(targetPerson);
     }
 }
