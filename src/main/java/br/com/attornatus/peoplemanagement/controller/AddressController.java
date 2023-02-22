@@ -20,7 +20,7 @@ public class AddressController {
         try {
             savedAddress = addressService.save(addressDTO);
         } catch (IllegalArgumentException exception) {
-            System.out.println("Pessoa Já existe!");
+            System.out.println("Erro! Verifique os dados inseridos.");
         }
 
         return savedAddress;
