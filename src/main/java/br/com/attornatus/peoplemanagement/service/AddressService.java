@@ -8,7 +8,6 @@ import br.com.attornatus.peoplemanagement.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-
 @Service
 @RequiredArgsConstructor
 public class AddressService {
@@ -27,7 +26,7 @@ public class AddressService {
         address.setNumber(addressDTO.getNumber());
         address.setPostalCode(addressDTO.getPostalCode());
         address.setCity(addressDTO.getCity());
-        address.setMain(addressDTO.isMain());
+        address.setAddressType(addressDTO.getAddressType());
         addressRepository.save(address);
 
         return addressDTO;
@@ -37,16 +36,5 @@ public class AddressService {
         return addressRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
-
-    /*public void editByPersonId(Long id) {
-        //pegar o ID da pessoa e colocar no endereço
-        Person person = personRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-        Address address = person.getAddress().get(0);
-        address.setPerson(person.getId());
-        addressRepository.save(person.getAddress().get(0));
-        Address address = addressRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-    }*/
-
-    //incluir método para verificar se o endereço é o principal
 
 }

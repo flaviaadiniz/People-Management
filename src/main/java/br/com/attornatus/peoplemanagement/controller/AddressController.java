@@ -28,14 +28,7 @@ public class AddressController {
 
     @GetMapping("{id}")
     public Address findById(@PathVariable Long id) {
-        //fazer logica para buscar so endereços da pessoa do ID passado
         return addressService.findById(id);
     }
-
-
-    /*
-    Criar método para verificar se o endereço é o principal
-    @GetMapping()
-    */
 
 }

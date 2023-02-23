@@ -14,12 +14,14 @@ public class Address {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JsonBackReference
-    private Person person;
 
+    private Person person;
     private String street;
     private String postalCode;
     private Integer number;
     private String city;
-    private boolean main;
+
+    @Enumerated(EnumType.STRING)
+    private AddressType addressType;
 
 }
