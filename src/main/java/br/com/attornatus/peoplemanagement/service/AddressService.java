@@ -55,4 +55,8 @@ public class AddressService {
         updatedAddress.setAddressType(addressRequestDTO.getAddressType());
         return addressRepository.save(updatedAddress);
     }
+
+    public void deleteById(Long id) {
+        addressRepository.deleteById(id);
+    }
 }

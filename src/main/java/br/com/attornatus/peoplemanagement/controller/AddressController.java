@@ -3,8 +3,6 @@ package br.com.attornatus.peoplemanagement.controller;
 import br.com.attornatus.peoplemanagement.dto.AddressRequestDTO;
 import br.com.attornatus.peoplemanagement.dto.AddressResponseDTO;
 import br.com.attornatus.peoplemanagement.model.Address;
-import br.com.attornatus.peoplemanagement.repository.AddressRepository;
-import br.com.attornatus.peoplemanagement.repository.PersonRepository;
 import br.com.attornatus.peoplemanagement.service.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class AddressController {
 
     private final AddressService addressService;
-    private final AddressRepository addressRepository;
-    private final PersonRepository personRepository;
 
     @PostMapping()
     public AddressResponseDTO save(@RequestBody AddressRequestDTO addressRequestDTO) {
@@ -31,7 +27,7 @@ public class AddressController {
         return savedAddress;
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Address findById(@PathVariable Long id) {
         return addressService.findById(id);
     }
@@ -39,6 +35,11 @@ public class AddressController {
     @PutMapping("/{id}")
     public Address editById(@PathVariable Long id, @RequestBody AddressRequestDTO addressRequestDTO) {
         return addressService.editById(id, addressRequestDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id) {
+        addressService.deleteById(id);
     }
 
 }

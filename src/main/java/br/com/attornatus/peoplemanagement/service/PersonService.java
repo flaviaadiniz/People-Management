@@ -22,7 +22,6 @@ public class PersonService {
     }
 
     public List<Person> list() {
-        //criar validações
         return (List<Person>) personRepository.findAll();
     }
 
