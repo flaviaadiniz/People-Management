@@ -14,7 +14,6 @@ public class Address {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JsonBackReference
-
     private Person person;
     private String street;
     private String postalCode;

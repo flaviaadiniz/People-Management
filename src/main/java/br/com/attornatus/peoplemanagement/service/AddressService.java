@@ -46,4 +46,13 @@ public class AddressService {
         return addressRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
+    public Address editById(Long id, AddressRequestDTO addressRequestDTO) {
+        Address updatedAddress = addressRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        updatedAddress.setStreet(addressRequestDTO.getStreet());
+        updatedAddress.setNumber(addressRequestDTO.getNumber());
+        updatedAddress.setPostalCode(addressRequestDTO.getPostalCode());
+        updatedAddress.setCity(addressRequestDTO.getCity());
+        updatedAddress.setAddressType(addressRequestDTO.getAddressType());
+        return addressRepository.save(updatedAddress);
+    }
 }
