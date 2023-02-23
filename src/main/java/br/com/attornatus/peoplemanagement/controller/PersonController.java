@@ -17,8 +17,8 @@ public class PersonController {
     private final PersonService personService;
 
     @PostMapping()
-    public PersonResponseDTO save(@RequestBody PersonRequestDTO person) {
-        Person savedPerson = personService.save(person);
+    public PersonResponseDTO save(@RequestBody PersonRequestDTO personRequestDTO) {
+        Person savedPerson = personService.save(personRequestDTO);
 
         PersonResponseDTO personResponseDTO = new PersonResponseDTO();
         personResponseDTO.setId(savedPerson.getId());
