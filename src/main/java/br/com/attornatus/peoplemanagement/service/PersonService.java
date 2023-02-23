@@ -36,4 +36,8 @@ public class PersonService {
         targetPerson.setBirthDate(personRequestDTO.getBirthDate());
         return personRepository.save(targetPerson);
     }
+
+    public void deleteById(Long id) {
+        personRepository.deleteById(id);
+    }
 }
