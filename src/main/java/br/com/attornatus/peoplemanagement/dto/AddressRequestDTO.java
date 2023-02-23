@@ -4,7 +4,7 @@ import br.com.attornatus.peoplemanagement.model.AddressType;
 import lombok.Data;
 
 @Data
-public class AddressDTO {
+public class AddressRequestDTO {
 
     private Long personId;
     private String street;

@@ -1,6 +1,7 @@
 package br.com.attornatus.peoplemanagement.controller;
 
-import br.com.attornatus.peoplemanagement.dto.AddressDTO;
+import br.com.attornatus.peoplemanagement.dto.AddressRequestDTO;
+import br.com.attornatus.peoplemanagement.dto.AddressResponseDTO;
 import br.com.attornatus.peoplemanagement.model.Address;
 import br.com.attornatus.peoplemanagement.service.AddressService;
 import lombok.RequiredArgsConstructor;
@@ -14,11 +15,11 @@ public class AddressController {
     private final AddressService addressService;
 
     @PostMapping()
-    public AddressDTO save(@RequestBody AddressDTO addressDTO) {
-        AddressDTO savedAddress = null;
+    public AddressResponseDTO save(@RequestBody AddressRequestDTO addressRequestDTO) {
+        AddressResponseDTO savedAddress = null;
 
         try {
-            savedAddress = addressService.save(addressDTO);
+            savedAddress = addressService.save(addressRequestDTO);
         } catch (IllegalArgumentException exception) {
             System.out.println("Erro! Verifique os dados inseridos.");
         }

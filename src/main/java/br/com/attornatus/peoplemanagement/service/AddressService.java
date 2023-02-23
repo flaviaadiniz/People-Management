@@ -1,6 +1,7 @@
 package br.com.attornatus.peoplemanagement.service;
 
-import br.com.attornatus.peoplemanagement.dto.AddressDTO;
+import br.com.attornatus.peoplemanagement.dto.AddressRequestDTO;
+import br.com.attornatus.peoplemanagement.dto.AddressResponseDTO;
 import br.com.attornatus.peoplemanagement.model.Address;
 import br.com.attornatus.peoplemanagement.model.Person;
 import br.com.attornatus.peoplemanagement.repository.AddressRepository;
@@ -15,21 +16,30 @@ public class AddressService {
     private final AddressRepository addressRepository;
     private final PersonRepository personRepository;
 
-    public AddressDTO save(AddressDTO addressDTO) {
+    public AddressResponseDTO save(AddressRequestDTO addressRequestDTO) {
 
         Person targetPerson = personRepository
-                .findById(addressDTO.getPersonId()).orElseThrow(IllegalArgumentException::new);
+                .findById(addressRequestDTO.getPersonId()).orElseThrow(IllegalArgumentException::new);
         Address address = new Address();
 
         address.setPerson(targetPerson);
-        address.setStreet(addressDTO.getStreet());
-        address.setNumber(addressDTO.getNumber());
-        address.setPostalCode(addressDTO.getPostalCode());
-        address.setCity(addressDTO.getCity());
-        address.setAddressType(addressDTO.getAddressType());
+        address.setStreet(addressRequestDTO.getStreet());
+        address.setNumber(addressRequestDTO.getNumber());
+        address.setPostalCode(addressRequestDTO.getPostalCode());
+        address.setCity(addressRequestDTO.getCity());
+        address.setAddressType(addressRequestDTO.getAddressType());
         addressRepository.save(address);
 
-        return addressDTO;
+        AddressResponseDTO addressResponseDTO = new AddressResponseDTO();
+        addressResponseDTO.setAddressId(address.getId());
+        addressResponseDTO.setPersonId(addressRequestDTO.getPersonId());
+        addressResponseDTO.setStreet(address.getStreet());
+        addressResponseDTO.setNumber(address.getNumber());
+        addressResponseDTO.setPostalCode(address.getPostalCode());
+        addressResponseDTO.setCity(address.getCity());
+        addressResponseDTO.setAddressType(address.getAddressType());
+
+        return addressResponseDTO;
     }
 
     public Address findById(Long id) {
