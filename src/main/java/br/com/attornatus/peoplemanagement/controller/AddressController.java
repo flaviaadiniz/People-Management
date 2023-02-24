@@ -7,6 +7,8 @@ import br.com.attornatus.peoplemanagement.service.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/addresses")
@@ -25,6 +27,11 @@ public class AddressController {
         }
 
         return savedAddress;
+    }
+
+    @GetMapping()
+    public List<Address> findAll() {
+        return addressService.findAll();
     }
 
     @GetMapping("/{id}")

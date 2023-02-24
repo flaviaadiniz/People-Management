@@ -9,6 +9,8 @@ import br.com.attornatus.peoplemanagement.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AddressService {
@@ -40,6 +42,10 @@ public class AddressService {
         addressResponseDTO.setAddressType(address.getAddressType());
 
         return addressResponseDTO;
+    }
+
+    public List<Address> findAll() {
+        return (List<Address>) addressRepository.findAll();
     }
 
     public Address findById(Long id) {
