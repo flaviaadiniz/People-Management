@@ -20,7 +20,7 @@ API para gerenciamento de pessoas com as seguintes funcionalidades:
 
 <hr>
 
-## Métodos e endpoints para criar e editar registros da classe Person
+## 1. Métodos e endpoints para criar e editar registros da classe Person
 | Método | Endpoint | Função |
 |--------|----------|--------|
 | POST | `http://localhost:8080/api/people`| Criar registro de nova pessoa |
@@ -75,7 +75,8 @@ Retorna Status 200 OK
 <br>
 <hr>
 
-## Métodos e endpoints para criar e alterar registros da classe Address
+
+## 2. Métodos e endpoints para criar e alterar registros da classe Address
 | Método | Endpoint | Função |
 |--------|----------|--------|
 | POST | `http://localhost:8080/api/addresses`| Criar um novo endereço e atribuí-lo à pessoa do ID passado como atributo |
@@ -220,7 +221,7 @@ Retorna Status 200 OK
 
 <hr>
 
-## Métodos para buscar registros de pessoas, após atribuição de endereços:
+## 3. Métodos para buscar registros de pessoas, após atribuição de endereços:
 
 | Método | Endpoint | Função |
 |--------|----------|--------|
