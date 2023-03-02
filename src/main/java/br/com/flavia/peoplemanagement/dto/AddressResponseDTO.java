@@ -1,6 +1,6 @@
-package br.com.attornatus.peoplemanagement.dto;
+package br.com.flavia.peoplemanagement.dto;
 
-import br.com.attornatus.peoplemanagement.model.AddressType;
+import br.com.flavia.peoplemanagement.model.AddressType;
 import lombok.Data;
 
 @Data

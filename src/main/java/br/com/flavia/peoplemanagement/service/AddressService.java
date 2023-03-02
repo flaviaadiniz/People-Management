@@ -1,11 +1,11 @@
-package br.com.attornatus.peoplemanagement.service;
+package br.com.flavia.peoplemanagement.service;
 
-import br.com.attornatus.peoplemanagement.dto.AddressRequestDTO;
-import br.com.attornatus.peoplemanagement.dto.AddressResponseDTO;
-import br.com.attornatus.peoplemanagement.model.Address;
-import br.com.attornatus.peoplemanagement.model.Person;
-import br.com.attornatus.peoplemanagement.repository.AddressRepository;
-import br.com.attornatus.peoplemanagement.repository.PersonRepository;
+import br.com.flavia.peoplemanagement.dto.AddressRequestDTO;
+import br.com.flavia.peoplemanagement.dto.AddressResponseDTO;
+import br.com.flavia.peoplemanagement.model.Address;
+import br.com.flavia.peoplemanagement.model.Person;
+import br.com.flavia.peoplemanagement.repository.AddressRepository;
+import br.com.flavia.peoplemanagement.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

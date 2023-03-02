@@ -1,4 +1,4 @@
-package br.com.attornatus.peoplemanagement.dto;
+package br.com.flavia.peoplemanagement.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

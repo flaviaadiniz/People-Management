@@ -1,4 +1,4 @@
-package br.com.attornatus.peoplemanagement.dto;
+package br.com.flavia.peoplemanagement.dto;
 
 import lombok.Data;
 

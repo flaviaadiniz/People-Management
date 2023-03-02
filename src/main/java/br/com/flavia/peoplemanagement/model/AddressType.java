@@ -1,4 +1,4 @@
-package br.com.attornatus.peoplemanagement.model;
+package br.com.flavia.peoplemanagement.model;
 
 import lombok.*;
 

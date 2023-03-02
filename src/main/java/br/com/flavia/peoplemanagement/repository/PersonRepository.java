@@ -1,6 +1,6 @@
-package br.com.attornatus.peoplemanagement.repository;
+package br.com.flavia.peoplemanagement.repository;
 
-import br.com.attornatus.peoplemanagement.model.Person;
+import br.com.flavia.peoplemanagement.model.Person;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PersonRepository extends CrudRepository<Person, Long> {

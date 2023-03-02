@@ -1,9 +1,9 @@
-package br.com.attornatus.peoplemanagement.controller;
+package br.com.flavia.peoplemanagement.controller;
 
-import br.com.attornatus.peoplemanagement.dto.PersonRequestDTO;
-import br.com.attornatus.peoplemanagement.dto.PersonResponseDTO;
-import br.com.attornatus.peoplemanagement.model.Person;
-import br.com.attornatus.peoplemanagement.service.PersonService;
+import br.com.flavia.peoplemanagement.dto.PersonRequestDTO;
+import br.com.flavia.peoplemanagement.dto.PersonResponseDTO;
+import br.com.flavia.peoplemanagement.model.Person;
+import br.com.flavia.peoplemanagement.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package br.com.attornatus.peoplemanagement;
+package br.com.flavia.peoplemanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
