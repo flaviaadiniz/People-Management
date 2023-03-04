@@ -5,6 +5,7 @@ import br.com.flavia.peoplemanagement.dto.AddressResponseDTO;
 import br.com.flavia.peoplemanagement.model.Address;
 import br.com.flavia.peoplemanagement.service.AddressService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class AddressController {
     private final AddressService addressService;
 
     @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
     public AddressResponseDTO save(@RequestBody AddressRequestDTO addressRequestDTO) {
         AddressResponseDTO savedAddress = null;
 
@@ -40,11 +42,13 @@ public class AddressController {
     }
 
     @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public Address editById(@PathVariable Long id, @RequestBody AddressRequestDTO addressRequestDTO) {
         return addressService.editById(id, addressRequestDTO);
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) {
         addressService.deleteById(id);
     }
