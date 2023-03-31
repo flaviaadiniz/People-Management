@@ -44,7 +44,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    void savePersonTest() {
+    void saveTest() {
         when(personRepository.save(Mockito.any())).thenReturn(person2);
 
         PersonRequestDTO personRequestDTO = new PersonRequestDTO();
@@ -57,14 +57,14 @@ public class PersonServiceTest {
     }
 
     @Test
-    void listAllPeopleTest() {
+    void listTest() {
         when(personRepository.findAll()).thenReturn(personList);
         List<Person> people = personService.list();
         assertEquals(people.size(), 2);
     }
 
     @Test
-    void findPersonByIdTest() {
+    void findByIdTest() {
         when(personRepository.findById(1L)).thenReturn(Optional.of(person1));
         Person person = personService.findById(1L);
 
@@ -76,7 +76,7 @@ public class PersonServiceTest {
 
 
     @Test
-    void deletePerson() {
+    void deleteTest() {
         personService.deleteById(2L);
         assertNull(person2.getId());
     }
