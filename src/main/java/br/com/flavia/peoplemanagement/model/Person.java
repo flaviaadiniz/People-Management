@@ -3,12 +3,14 @@ package br.com.flavia.peoplemanagement.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "people")
 public class Person {
 
@@ -27,5 +29,15 @@ public class Person {
     @JoinColumn(name = "person_id")
     @JsonManagedReference
     private List<Address> addresses;
+
+    public Person() {
+
+    }
+
+    public Person(Long id, String name, LocalDate birthDate, List<Address> address) {
+        this.name = name;
+        this.birthDate = birthDate;
+        this.addresses = address;
+    }
 
 }
