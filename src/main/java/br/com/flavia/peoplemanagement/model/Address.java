@@ -23,4 +23,15 @@ public class Address {
     @Enumerated(EnumType.STRING)
     private AddressType addressType;
 
+    public Address() {
+
+    }
+    public Address(Long id, String street, String postalCode, Integer number, String city, AddressType addressType) {
+        this.id = id;
+        this.street = street;
+        this.postalCode = postalCode;
+        this.number = number;
+        this.city = city;
+        this.addressType = addressType;
+    }
 }
