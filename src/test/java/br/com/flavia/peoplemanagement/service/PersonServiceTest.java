@@ -76,7 +76,7 @@ public class PersonServiceTest {
 
 
     @Test
-    void deleteTest() {
+    void deleteByIdTest() {
         personService.deleteById(2L);
         assertNull(person2.getId());
     }

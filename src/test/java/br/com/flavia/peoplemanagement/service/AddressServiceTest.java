@@ -18,8 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -83,19 +84,28 @@ public class AddressServiceTest {
 
     @Test
     void findAllTest() {
-
+        when(addressRepository.findAll()).thenReturn(addressList);
+        List<Address> addresses = addressService.findAll();
+        assertEquals(addresses.size(), 2);
     }
 
 
     @Test
     void findByIdTest() {
+        when(addressRepository.findById(1L)).thenReturn(Optional.of(address1));
+        Address address = addressService.findById(1L);
 
+        assertEquals(address.getId(), address1.getId());
+        assertEquals(address.getStreet(), address1.getStreet());
+        assertEquals(address.getPostalCode(), address1.getPostalCode());
+        assertEquals(address.getAddressType(), address1.getAddressType());
     }
 
 
     @Test
-    void deleteById() {
-
+    void deleteByIdTest() {
+        addressService.deleteById(2L);
+        assertNull(address2.getId());
     }
 
 
